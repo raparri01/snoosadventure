@@ -34,45 +34,45 @@ comments.on('comment', (comment) => {
       }
       switch (action) {
         case 'create':
-          axios.post(`${process.env.BACKEND_ADDRESS}/api/rpg/create`, body).then(data => {
-            comment.reply(data);
+          axios.post(`${process.env.BACKEND_ADDRESS}/api/rpg/create`, body).then(res => {
+            comment.reply(res.data);
           });
           break;
         case 'rest':
-          axios.post(`${process.env.BACKEND_ADDRESS}/api/rpg/rest`, body).then(data => {
-            comment.reply(data);
+          axios.post(`${process.env.BACKEND_ADDRESS}/api/rpg/rest`, body).then(res => {
+            comment.reply(res.data);
           });
           break;
         case 'battle':
           body = {
             ...body,
-            monster: action
+            monster: args
           }
-          axios.post(`${process.env.BACKEND_ADDRESS}/api/rpg/battle`, body).then(data => {
-            comment.reply(data);
+          axios.post(`${process.env.BACKEND_ADDRESS}/api/rpg/battle`, body).then(res => {
+            comment.reply(res.data);
           })
           break;
         case 'buy':
           body = {
             ...body,
-            item: action
+            item: args
           }
-          axios.post(`${process.env.BACKEND_ADDRESS}/api/rpg/buy`, body).then(data => {
-            comment.reply(data);
+          axios.post(`${process.env.BACKEND_ADDRESS}/api/rpg/buy`, body).then(res => {
+            comment.reply(res.data);
           });
           break;
         case 'sell':
           body = {
             ...body,
-            item: action
+            item: args
           }
-          axios.post(`${process.env.BACKEND_ADDRESS}/api/rpg/sell`, body).then(data => {
-            comment.reply(data);
+          axios.post(`${process.env.BACKEND_ADDRESS}/api/rpg/sell`, body).then(res => {
+            comment.reply(res.data);
           })
           break;
         case 'levelUp':
-          axios.post(`${process.env.BACKEND_ADDRESS}/api/rpg/levelUp`, body).then(data => {
-            comment.reply(data);
+          axios.post(`${process.env.BACKEND_ADDRESS}/api/rpg/levelUp`, body).then(res => {
+            comment.reply(res.data);
           })
           break;
 
